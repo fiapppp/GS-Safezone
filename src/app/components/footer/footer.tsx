@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Container from "../container/container";
 
 const Footer = () => {
 
@@ -7,7 +8,7 @@ const Footer = () => {
         <>
             <footer className="bg-gray-700 text-white flex-1/3 justify-center">
 
-                <div className="mx-auto w-full max-w-[78.5rem]">
+                <Container >
                     <div className="grid md:grid-cols-3 grid-cols-1 gap-6 items-center p-10">
                         <div className="grid justify-center py-5">
                             <Link href={"/"}><Image src="/logo-w.svg" alt={"SafeZone Logo"} width={300} height={300}></Image></Link>
@@ -26,9 +27,9 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="py-5 text-white text-xs text-center font-(family-name:--font-txt)">
-                        <p>Copyright &copy; 2025 - Todos os direitos reservados</p>
+                        <p>&copy; 2025 SafeZone - Juntos pela sua segurança.</p>
                     </div>
-                </div>
+                </Container>
                 
             </footer>
         </>
