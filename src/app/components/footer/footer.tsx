@@ -16,9 +16,10 @@ const Footer = () => {
                         <div className="py-5 grid md:justify-center">
                             <h3 className="text-2xl pb-3.5 font-(family-name:--font-title) uppercase font-bold">Navegação</h3>
                             <ul className="font-(family-name:--font-txt)">
-                                <li className="mb-3 hover:text-gray-400"><Link href="/report">Abrigos</Link></li>
-                                <li className="mb-3 hover:text-gray-400"><Link href="/wallet">Áreas de risco</Link></li>
-                                <li className="mb-3 hover:text-gray-400"><Link href="/whyReport">Sobre nós</Link></li>
+                                <li className="mb-3 hover:text-gray-400"><Link href="/abrigos">Abrigos</Link></li>
+                                <li className="mb-3 hover:text-gray-400"><Link href="/relatos">Relatos</Link></li>
+                                <li className="mb-3 hover:text-gray-400"><Link href="/areas-de-risco">Áreas de risco</Link></li>
+                                <li className="mb-3 hover:text-gray-400"><Link href="/integrantes">Sobre nós</Link></li>
                             </ul>
                         </div>
                         <div className="flex flex-col items-center py-5">

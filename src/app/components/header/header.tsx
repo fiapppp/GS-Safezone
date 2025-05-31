@@ -13,10 +13,11 @@ const Header = () => {
                             </Link>
                             <div className="hidden md:flex items-center space-x-3 font-(family-name:--font-title) text-lg">
                                 <a href="/" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Início</a>
-                                <a href="/" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Abrigos</a>
-                                <a href="/" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Áreas de risco</a>
-                                <a href="/" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Sobre nós</a>
-                                <a href="/" className= "hover:text-gray-700 bg-blue-400 rounded p-2 text-white">Login</a>
+                                <a href="/abrigos" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Abrigos</a>
+                                <a href="/relatos" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Relatos</a>
+                                <a href="/areas-de-risco" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Áreas de risco</a>
+                                <a href="/integrantes" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Sobre nós</a>
+                                <a href="/login" className= "hover:text-gray-700 bg-blue-400 rounded p-2 text-white">Login</a>
                             </div>
                         </nav>
                     </div>
