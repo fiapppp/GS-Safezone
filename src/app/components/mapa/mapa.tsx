@@ -22,13 +22,14 @@ const MapaLocalizacao = () => {
           });
           setLoading(false);
         },
-        (error) => {
-          console.error('Erro ao obter localização:', error);
+        (err) => {
+          const mensagemErro =
+            err?.message ||
+            'Erro desconhecido ao tentar acessar a localização.';
+
           setError(
-            'Não conseguimos acessar sua localização. Exibindo um local padrão. Por favor, ative a permissão de localização no navegador para visualizar sua posição no mapa.'
+            `Não conseguimos acessar sua localização. ${mensagemErro} Exibindo um local padrão.`
           );
-          setCoords(fallbackCoords);
-          setLoading(false);
         },
         {
           enableHighAccuracy: true,

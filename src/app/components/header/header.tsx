@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="shadow fixed w-full top-0 left-0 bg-white/70 backdrop-blur-sm">
+            <header className="shadow fixed w-full top-0 left-0 bg-white/70 backdrop-blur-sm z-50">
                 <div className="mx-auto max-w-[78.5rem] px-4">
                     <div className="flex justify-between items-center h-16">
                         <nav className="flex items-center justify-between w-full font-bold">
@@ -13,11 +13,10 @@ const Header = () => {
                             </Link>
                             <div className="hidden md:flex items-center space-x-3 font-(family-name:--font-title) text-lg">
                                 <a href="/" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Início</a>
-                                <a href="/abrigos" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Abrigos</a>
-                                <a href="/relatos" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Relatos</a>
-                                <a href="/areas-de-risco" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Áreas de risco</a>
+                                <a href="/ocorrencias" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Ocorrências</a>
+                                <a href="/beneficios" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Benefícios</a>
                                 <a href="/integrantes" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">Sobre nós</a>
-                                <a href="/login" className= "hover:text-gray-700 bg-blue-400 rounded p-2 text-white">Login</a>
+                                <a href="/usuario/login" className= "hover:text-gray-700 bg-blue-400 rounded p-2 text-white">Login</a>
                             </div>
                         </nav>
                     </div>

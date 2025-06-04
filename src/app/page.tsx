@@ -26,12 +26,12 @@ export default function Home() {
               </p>
 
               <div className="flex gap-4 font-(family-name:--font-txt)">
-                <Link href="/login">
+                <Link href="/usuario/login">
                   <button className="px-6 py-2 rounded-lg bg-blue-700 text-white hover:bg-blue-800">
                     Login
                   </button>
                 </Link>
-                <Link href="/cadastro">
+                <Link href="/usuario/cadastro">
                   <button className="px-6 py-2 rounded-lg border border-blue-700 text-blue-700 hover:bg-blue-50">
                     Cadastro
                   </button>
@@ -86,16 +86,16 @@ export default function Home() {
 
               {/* Card 1 */}
               <div className="border border-gray-200 rounded-full p-13 bg-white shadow hover:shadow-lg transition flex flex-col items-center">
-                <Image src="/alert.svg" alt="sf_alert" width={50} height={50} />
+                <Image src="/report.svg" alt="sf_report" width={50} height={50} />
                 <h2 className="text-2xl font-semibold text-center text-blue-700 mt-5 mb-8 font-(family-name:--font-title)">
-                  Receba Alertas
+                  Enviar Relato
                 </h2>
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
-                  Fique informado sobre enchentes, deslizamentos ou qualquer outro evento na sua região.
+                  Viu uma situação de risco? Avise! Seu relato pode ajudar autoridades e outras pessoas.
                 </p>
-                <Link href="/alertas">
+                <Link href="/relatos">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
-                    Ver Alertas
+                    Enviar Relato
                   </button>
                 </Link>
               </div>
@@ -118,16 +118,16 @@ export default function Home() {
 
               {/* Card 3 */}
               <div className="border border-gray-200 rounded-full p-13 bg-white shadow hover:shadow-lg transition flex flex-col items-center">
-                <Image src="/report.svg" alt="sf_report" width={50} height={50} />
+                <Image src="/alert.svg" alt="sf_alert" width={50} height={50} />
                 <h2 className="text-2xl font-semibold text-center text-blue-700 mt-5 mb-8 font-(family-name:--font-title)">
-                  Enviar Relato
+                  Título
                 </h2>
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
-                  Viu uma situação de risco? Avise! Seu relato pode ajudar autoridades e outras pessoas.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
-                <Link href="/relatos">
+                <Link href="/alertas">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
-                    Enviar Relato
+                    Link
                   </button>
                 </Link>
               </div>
@@ -143,12 +143,12 @@ export default function Home() {
 
           <div className="md:flex md:flex-1/2 md:justify-between items-center">
             <div>
-              <h2 className="text-3xl font-extrabold mb-6 text-black uppercase font-(family-name:--font-title)">Últimos alertas ativos</h2>
+              <h2 className="text-3xl font-extrabold mb-6 text-black uppercase font-(family-name:--font-title)">Últimos Ocorrências</h2>
               <p className="text-lg mb-10 max-w-2xl text-black font-(family-name:--font-txt)">
-                Fique por dentro dos últimos alertas emitidos na sua região. Mantenha-se informado e seguro!
+                Fique por dentro das últimas ocorrências registradas. Compartilhe os relatos e ajude as comuniadades afetadas.
               </p>
               <Link href="/alertas" className="px-6 py-2 rounded-lg bg-black text-white hover:bg-gray-800 font-(family-name:--font-txt)">
-                Ver alertas
+                Ver útimas ocorrências
               </Link>
             </div>
 
