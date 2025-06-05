@@ -4,9 +4,32 @@ import Image from "next/image";
 import Container from "@/app/components/container/container";
 
 const Beneficios = () => {
-
     const tiposBeneficio = ['a', 'b', 'c', 'd'];
-    const [tipoSelecionado, setTipoSelecionado] = useState('');
+
+    const [beneficioSelecionado, setBeneficioSelecionado] = useState("");
+    const [modoEdicao, setModoEdicao] = useState(false);
+
+    const [nome, setNome] = useState("");
+    const [custo, setCusto] = useState("");
+    const [dataValidade, setDataValidade] = useState("");
+    const [quantidade, setQuantidade] = useState("");
+    const [tipoSelecionado, setTipoSelecionado] = useState("");
+
+    const handleSelecionarBeneficio = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const valor = e.target.value;
+        setBeneficioSelecionado(valor);
+        const editar = !!valor;
+        setModoEdicao(editar);
+
+        if (!editar) {
+            // limpa os campos
+            setNome("");
+            setCusto("");
+            setDataValidade("");
+            setQuantidade("");
+            setTipoSelecionado("");
+        }
+    };
 
     return (
         <>
@@ -22,38 +45,96 @@ const Beneficios = () => {
                         Editar <span className="text-purple-600">benefício</span>
                     </h1>
 
+                    <div className="mb-6 md:w-1/2 font-(family-name:--font-title)">
+                        <label htmlFor="selecionar_beneficio" className="block text-gray-700 mb-2 text-3xl font-bold">
+                            Selecione o benefício para editar:
+                        </label>
+                        <select
+                            id="selecionar_beneficio"
+                            value={beneficioSelecionado}
+                            onChange={handleSelecionarBeneficio}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Selecione o benefício desejado...</option>
+                            <option value="1">Benefício 1</option>
+                            <option value="2">Benefício 2</option>
+                            <option value="3">Benefício 3</option>
+                        </select>
+                    </div>
+
                     <div className="md:flex flex-col justify-center md:justify-between mb-4">
-                        <form action="" className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3">
+                        <form className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3">
                             <div className="border border-gray-200 p-13 bg-white shadow transition">
                                 <div className="mb-6">
-                                    <label htmlFor="tipo_beneficio" className="block text-gray-700 mb-2">Selecione o benefício para editar:</label>
-                                    <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                        <option value="">Selecione...</option>
-                                    </select>
+                                    <label htmlFor="editar_beneficio" className="block text-gray-700 mb-2">Benefício selecionado:</label>
+                                    <input
+                                        type="text"
+                                        id="editar_beneficio"
+                                        name="editar_beneficio"
+                                        value={beneficioSelecionado}
+                                        readOnly
+                                        className="w-full px-4 py-2 border border-gray-300 bg-gray-200 rounded-lg"
+                                    />
                                 </div>
-                                <hr className="text-purple-800 mb-6"/>
+
+                                <hr className="text-purple-800 mb-6" />
+
                                 <div className="mb-6">
                                     <label htmlFor="nome_beneficio" className="block text-gray-700 mb-2">Nome</label>
-                                    <input type="text" id="nome_beneficio" name="nome_beneficio" required
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                    <input
+                                        type="text"
+                                        id="nome_beneficio"
+                                        name="nome_beneficio"
+                                        value={nome}
+                                        onChange={(e) => setNome(e.target.value)}
+                                        required
+                                        readOnly={!modoEdicao}
+                                        className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 ${!modoEdicao ? "bg-gray-200" : ""}`}
+                                    />
                                 </div>
+
                                 <div className="mb-6 grid grid-cols-3 gap-4">
                                     <div>
                                         <label htmlFor="custo_beneficio" className="block text-gray-700 mb-2">Custo</label>
-                                        <input type="custo_beneficio" id="custo_beneficio" name="custo_beneficio" required
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                        <input
+                                            type="text"
+                                            id="custo_beneficio"
+                                            name="custo_beneficio"
+                                            value={custo}
+                                            onChange={(e) => setCusto(e.target.value)}
+                                            required
+                                            readOnly={!modoEdicao}
+                                            className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 ${!modoEdicao ? "bg-gray-200" : ""}`}
+                                        />
                                     </div>
                                     <div>
-                                        <label htmlFor="dt_beneficio" className="block text-gray-700 mb-2">Data de validade</label>
-                                        <input type="dt_beneficio" id="dt_beneficio" name="dt_beneficio" required
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                        <label htmlFor="data_beneficio" className="block text-gray-700 mb-2">Data de validade</label>
+                                        <input
+                                            type="text"
+                                            id="data_beneficio"
+                                            name="data_beneficio"
+                                            value={dataValidade}
+                                            onChange={(e) => setDataValidade(e.target.value)}
+                                            required
+                                            readOnly={!modoEdicao}
+                                            className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 ${!modoEdicao ? "bg-gray-200" : ""}`}
+                                        />
                                     </div>
                                     <div>
                                         <label htmlFor="quantidade_beneficio" className="block text-gray-700 mb-2">Quantidade</label>
-                                        <input type="text" id="quantidade_beneficio" name="quantidade_beneficio" required
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                        <input
+                                            type="text"
+                                            id="quantidade_beneficio"
+                                            name="quantidade_beneficio"
+                                            value={quantidade}
+                                            onChange={(e) => setQuantidade(e.target.value)}
+                                            required
+                                            readOnly={!modoEdicao}
+                                            className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 ${!modoEdicao ? "bg-gray-200" : ""}`}
+                                        />
                                     </div>
                                 </div>
+
                                 <div className="mb-6">
                                     <label htmlFor="tipo_beneficio" className="block text-gray-700 mb-2">Tipo de benefício</label>
                                     <select
@@ -62,7 +143,8 @@ const Beneficios = () => {
                                         required
                                         value={tipoSelecionado}
                                         onChange={(e) => setTipoSelecionado(e.target.value)}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                        disabled={!modoEdicao}
+                                        className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 ${!modoEdicao ? "bg-gray-200" : ""}`}
                                     >
                                         <option value="">Selecione...</option>
                                         {tiposBeneficio.map((tipo, index) => (
@@ -70,8 +152,14 @@ const Beneficios = () => {
                                         ))}
                                     </select>
                                 </div>
-                                <button type="submit"
-                                    className="w-full px-6 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition duration-200 font-(family-name:--font-txt)">
+
+                                <button
+                                    type="submit"
+                                    disabled={!modoEdicao}
+                                    className={`w-full px-6 py-2 text-white font-semibold rounded-lg transition duration-200 font-(family-name:--font-txt) ${
+                                        modoEdicao ? "bg-purple-600 hover:bg-purple-700" : "bg-gray-400 cursor-not-allowed"
+                                    }`}
+                                >
                                     Editar benefício
                                 </button>
                             </div>
@@ -81,7 +169,7 @@ const Beneficios = () => {
                 </Container>
             </section>
         </>
-    )
-}
+    );
+};
 
 export default Beneficios;

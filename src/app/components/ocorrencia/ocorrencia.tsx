@@ -2,8 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import TextoLimitado from "@/app/components/textoLimitado/textoLimitado";
 
 const Ocorrencia = () => {
+
+    const descricao = "Uma enchente foi registrada na região do centro. Evite áreas alagadas.";
 
     return (
         <>
@@ -13,9 +16,11 @@ const Ocorrencia = () => {
                         <Image src="/enchente.svg" alt="sf_alert" width={20} height={20} />
                         <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">Alerta de Enchente</h3>
                     </div>
-                    <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Uma enchente foi registrada na região do centro. Evite áreas alagadas.</p>
+                    <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
+                        <TextoLimitado texto={descricao} limite={150} />
+                    </p>
                     <div className="flex items-center gap-6 justify-end">
-                        <Link href="/denuncia/cadastrar" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Fazer denúncia</Link>
+                        <Link href="/denuncias/cadastrar" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Fazer denúncia</Link>
                         <Link href="/ocorrencias/1" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Ver Detalhes</Link>
                     </div>
                 </div>

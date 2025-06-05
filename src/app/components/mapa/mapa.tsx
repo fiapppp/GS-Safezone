@@ -1,9 +1,19 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
-const MapaLocalizacao = () => {
-  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
+interface MapaLocalizacaoProps {
+  width?: number | string;
+  height?: number | string;
+}
+
+const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({
+  width = "100%",
+  height = 500,
+}) => {
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(
+    null
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -13,7 +23,7 @@ const MapaLocalizacao = () => {
   };
 
   useEffect(() => {
-    if ('geolocation' in navigator) {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setCoords({
@@ -25,11 +35,13 @@ const MapaLocalizacao = () => {
         (err) => {
           const mensagemErro =
             err?.message ||
-            'Erro desconhecido ao tentar acessar a localização.';
+            "Erro desconhecido ao tentar acessar a localização.";
 
           setError(
             `Não conseguimos acessar sua localização. ${mensagemErro} Exibindo um local padrão.`
           );
+          setCoords(fallbackCoords);
+          setLoading(false);
         },
         {
           enableHighAccuracy: true,
@@ -38,7 +50,7 @@ const MapaLocalizacao = () => {
         }
       );
     } else {
-      setError('Geolocalização não é suportada neste navegador.');
+      setError("Geolocalização não é suportada neste navegador.");
       setCoords(fallbackCoords);
       setLoading(false);
     }
@@ -46,25 +58,34 @@ const MapaLocalizacao = () => {
 
   const mapaUrl = coords
     ? `https://maps.google.com/maps?q=${coords.lat},${coords.lng}&z=15&output=embed`
-    : '';
+    : "";
 
   return (
-    <div className="container">
+    <div className="w-full">
       {loading ? (
-        <div className="flex flex-col items-center justify-center h-[500px]">
-          <Image src="/loader-sf.svg" alt="Carregando..." width={400} height={200} className='bg-white rounded-full shadow-md p-10'/>
+        <div
+          style={{ width, height }}
+          className="flex flex-col items-center justify-center"
+        >
+          <Image
+            src="/loader-sf.svg"
+            alt="Carregando..."
+            width={200}
+            height={200}
+            className="bg-white rounded-full shadow-md p-10"
+          />
           <p className="text-lg animate-pulse font-(family-name:--font-txt) mt-5">
             Carregando mapa...
           </p>
         </div>
       ) : (
         <div>
-          <div className="w-full h-[500px]">
+          <div style={{ width, height }}>
             <iframe
               src={mapaUrl}
               width="100%"
               height="100%"
-              style={{ border: 0, borderRadius: '20px' }}
+              style={{ border: 0, borderRadius: "20px" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -80,6 +101,6 @@ const MapaLocalizacao = () => {
       )}
     </div>
   );
-}
+};
 
 export default MapaLocalizacao;

@@ -19,8 +19,9 @@ const Integrantes = () => {
                             <div className="rounded-full flex items-center justify-center mb-5">
                                 <Image src="/gc_profile.svg" alt="" width={250} height={250} />
                             </div>
-                            <div className="text-center font-(family-name:--font-title) text-3xl uppercase my-10 text-blue-800 font-bold">
-                                <p>Gabriel Cruz</p>
+                            <div className="text-center font-(family-name:--font-title) uppercase my-10 text-blue-800">
+                                <p className="text-3xl font-bold">Gabriel Cruz</p>
+                                <p>RM 559613</p>
                             </div>
                             <div className="flex items-center justify-center">
                                 <a href={""} target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/linkedin_logo.svg" alt="linkedin_logo" width={50} height={50} /></a>
@@ -32,8 +33,9 @@ const Integrantes = () => {
                             <div className="rounded-full flex items-center justify-center mb-5">
                                 <Image src="/kf_profile.svg" alt="" width={250} height={250} />
                             </div>
-                            <div className="text-center font-(family-name:--font-title) text-3xl uppercase my-10 text-blue-800 font-bold">
-                                <p>Kauã Ferreira</p>
+                            <div className="text-center font-(family-name:--font-title) uppercase my-10 text-blue-800">
+                                <p className="text-3xl font-bold">Kauã Ferreira</p>
+                                <p>RM 560992</p>
                             </div>
                             <div className="flex items-center justify-center">
                                 <a href="https://www.linkedin.com/in/kau%C3%A3-ferreira-/" target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/linkedin_logo.svg" alt="linkedin_logo" width={50} height={50} /></a>
@@ -45,8 +47,9 @@ const Integrantes = () => {
                             <div className="rounded-full flex items-center justify-center mb-5">
                                 <Image src="/vb_profile.svg" alt="" width={250} height={250} />
                             </div>
-                            <div className="text-center font-(family-name:--font-title) text-3xl uppercase my-10 text-blue-800 font-bold">
-                                <p>Vinicius Bitú</p>
+                            <div className="text-center font-(family-name:--font-title) uppercase my-10 text-blue-800">
+                                <p className="text-3xl font-bold">Vinicius Bitú</p>
+                                <p>RM 560227</p>
                             </div>
                             <div className="flex items-center justify-center">
                                 <a href="https://www.linkedin.com/in/viniciusbitu" target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/linkedin_logo.svg" alt="linkedin_logo" width={50} height={50} /></a>

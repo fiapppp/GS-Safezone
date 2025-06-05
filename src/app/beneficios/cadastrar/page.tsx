@@ -33,12 +33,12 @@ const Beneficios = () => {
                                 <div className="mb-6 grid grid-cols-3 gap-4">
                                     <div>
                                         <label htmlFor="custo_beneficio" className="block text-gray-700 mb-2">Custo</label>
-                                        <input type="custo_beneficio" id="custo_beneficio" name="custo_beneficio" required
+                                        <input type="text" id="custo_beneficio" name="custo_beneficio" required
                                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
                                     </div>
                                     <div>
-                                        <label htmlFor="dt_beneficio" className="block text-gray-700 mb-2">Data de validade</label>
-                                        <input type="dt_beneficio" id="dt_beneficio" name="dt_beneficio" required
+                                        <label htmlFor="data_beneficio" className="block text-gray-700 mb-2">Data de validade</label>
+                                        <input type="text" id="data_beneficio" name="data_beneficio" required
                                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
                                     </div>
                                     <div>
