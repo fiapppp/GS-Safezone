@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/app/components/container/container";
-import Ocorrencia from "@/app/components/ocorrencia/ocorrencia";
 import { useState } from "react";
 
 const Ocorrencias = () => {

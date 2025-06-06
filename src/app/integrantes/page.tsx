@@ -38,7 +38,7 @@ const Integrantes = () => {
                                 <p>RM 560992</p>
                             </div>
                             <div className="flex items-center justify-center">
-                                <a href="https://www.linkedin.com/in/kau%C3%A3-ferreira-/" target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/linkedin_logo.svg" alt="linkedin_logo" width={50} height={50} /></a>
+                                <a href="https://www.linkedin.com/in/kaua-ferreira/" target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/linkedin_logo.svg" alt="linkedin_logo" width={50} height={50} /></a>
                                 <a href="https://github.com/k-auaferreira" target="_blank" rel="noopener noreferrer" className='hover:bg-gray-300 transition duration-150 ease-in-out p-5 rounded-full'><Image src="/github_logo.svg" alt="" width={50} height={50} /></a>
                             </div>
                         </div>

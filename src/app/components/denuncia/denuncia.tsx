@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import TextoLimitado from "@/app/components/textoLimitado/textoLimitado";
+import Link from "next/link";
 
 const Denuncia = () => {
 
@@ -40,31 +41,33 @@ const Denuncia = () => {
 
     return (
         <div className="my-1">
-            <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
-                <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">
-                        Título
-                    </h3>
-                </div>
+            <Link href="/denuncias/minhas-denuncias/1">
+                <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
+                    <div className="flex justify-between items-center mb-3">
+                        <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">
+                            Título
+                        </h3>
+                    </div>
 
-                <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
-                    <TextoLimitado texto={descricao} limite={60} />
-                </p>
-
-                <p className="text-xs text-gray-400">DD/MM/AAAA</p>
-
-                <div className="mt-4 md:flex grid md:justify-between items-center font-(family-name:--font-txt) text-sm gap-2">
-                    <p className={`${cor}`}>
-                        Status: <span className={`${cor} font-semibold`}>{status}</span>
+                    <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
+                        <TextoLimitado texto={descricao} limite={60} />
                     </p>
 
-                    {exibePontos && (
-                        <p className="text-gray-600">
-                            <span className="text-blue-800 font-bold">Pontos Gerados: </span>{pontosGerados}
+                    <p className="text-xs text-gray-400">DD/MM/AAAA</p>
+
+                    <div className="mt-4 md:flex grid md:justify-between items-center font-(family-name:--font-txt) text-sm gap-2">
+                        <p className={`${cor}`}>
+                            Status: <span className={`${cor} font-semibold`}>{status}</span>
                         </p>
-                    )}
+
+                        {exibePontos && (
+                            <p className="text-gray-600">
+                                <span className="text-blue-800 font-bold">Pontos Gerados: </span>{pontosGerados}
+                            </p>
+                        )}
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 };

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Container from "@/app/components/container/container";
 import MapaLocalizacao from "@/app/components/mapa/mapa";
 import { ArrowLeft } from "lucide-react";
@@ -44,7 +43,7 @@ const MinhasDenuncias = () => {
 
     return (
         <>
-            <section className="py-40 h-auto">
+            <section className="py-30 h-auto">
                 <Container>
 
                     <div className="my-1">

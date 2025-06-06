@@ -20,9 +20,8 @@ export default function Home() {
               </h1>
 
               <p className="text-lg mb-10 max-w-2xl text-gray-700 font-(family-name:--font-txt)">
-                Aqui você pode se manter seguro em situações de risco. Encontre abrigos
-                disponíveis, receba alertas em tempo real sobre desastres na sua região e
-                envie relatos para ajudar sua comunidade.
+                Fique por dentro dos desastres mais recentes e ajude quem precisa.
+                Acompanhe ocorrências em tempo real, envie denúncias sobre áreas afetadas e contribua para que pessoas em situação de risco recebam os benefícios e o apoio que merecem.
               </p>
 
               <div className="flex gap-4 font-(family-name:--font-txt)">
@@ -53,22 +52,24 @@ export default function Home() {
           <div className="grid md:flex md:justify-between items-center gap-10">
             <div className="justify-center items-center">
               <h2 className="text-3xl font-bold mb-5 text-blue-600 uppercase font-(family-name:--font-title)">
-                Mapa de Abrigos
+                Áreas Afetadas
               </h2>
 
               <div className="font-(family-name:--font-txt)">
+                <p className="text-lg mb-3 max-w-2xl text-gray-700">
+                  Acompanhe no mapa os desastres mais recentes próximos de você.
+                </p>
                 <p className="text-lg mb-10 max-w-2xl text-gray-700">
-                  Veja os abrigos disponíveis para os alertas mais recentes na sua região.
-                  Mantenha-se informado e seguro!
+                  Veja onde há <span className="text-blue-600 font-bold">ocorrências</span>, envie <span className="text-blue-600 font-bold">denúncias</span> e contribua para que pessoas afetadas recebam ajuda e <span className="text-blue-600 font-bold">benefícios</span>.
                 </p>
 
-                <Link href="/alertas" className="px-6 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
-                  Procurar abrigos
+                <Link href="/ocorrencias" className="px-6 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
+                  Ver ocorrências
                 </Link>
               </div>
             </div>
 
-            <MapaLocalizacao />
+            <MapaLocalizacao width={800} height={450} />
           </div>
 
         </Container>
@@ -84,56 +85,57 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-              {/* Card 1 */}
+              {/* Card 1 - Enviar Relato */}
               <div className="border border-gray-200 rounded-full p-13 bg-white shadow hover:shadow-lg transition flex flex-col items-center">
                 <Image src="/report.svg" alt="sf_report" width={50} height={50} />
                 <h2 className="text-2xl font-semibold text-center text-blue-700 mt-5 mb-8 font-(family-name:--font-title)">
-                  Enviar Relato
+                  Enviar Denúncia
                 </h2>
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
-                  Viu uma situação de risco? Avise! Seu relato pode ajudar autoridades e outras pessoas.
+                  Identificou uma área afetada ou pessoas em risco? Envie uma denúncia e ajude a direcionar benefícios com mais agilidade.
                 </p>
                 <Link href="/relatos">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
-                    Enviar Relato
+                    Enviar agora
                   </button>
                 </Link>
               </div>
 
-              {/* Card 2 */}
+              {/* Card 2 - Ver Benefícios */}
               <div className="border border-gray-200 rounded-full p-13 bg-white shadow hover:shadow-lg transition flex flex-col items-center">
-                <Image src="/search.svg" alt="sf_search" width={50} height={50} />
+                <Image src="/beneficios.svg" alt="sf_benefits" width={50} height={50} />
                 <h2 className="text-2xl font-semibold text-center text-blue-700 mt-5 mb-8 font-(family-name:--font-title)">
-                  Encontre Abrigos
+                  Acesso a Benefícios
                 </h2>
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
-                  Descubra abrigos próximos, veja capacidade disponível e como chegar até lá.
+                  Consulte os benefícios disponíveis para pessoas afetadas por desastres na sua região, como auxílios emergenciais e apoio humanitário.
                 </p>
-                <Link href="/abrigos">
+                <Link href="/beneficios">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
-                    Buscar Abrigos
+                    Ver Benefícios
                   </button>
                 </Link>
               </div>
 
-              {/* Card 3 */}
+              {/* Card 3 - Alertas Ativos */}
               <div className="border border-gray-200 rounded-full p-13 bg-white shadow hover:shadow-lg transition flex flex-col items-center">
                 <Image src="/alert.svg" alt="sf_alert" width={50} height={50} />
                 <h2 className="text-2xl font-semibold text-center text-blue-700 mt-5 mb-8 font-(family-name:--font-title)">
-                  Título
+                  Alertas Ativos
                 </h2>
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veja os desastres mais recentes em sua região e acompanhe atualizações em tempo real para se proteger e ajudar.
                 </p>
                 <Link href="/alertas">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
-                    Link
+                    Ver Alertas
                   </button>
                 </Link>
               </div>
 
             </div>
           </div>
+
 
         </Container>
       </section>
@@ -143,49 +145,73 @@ export default function Home() {
 
           <div className="md:flex md:flex-1/2 md:justify-between items-center">
             <div>
-              <h2 className="text-3xl font-extrabold mb-6 text-black uppercase font-(family-name:--font-title)">Últimos Ocorrências</h2>
+              <h2 className="text-3xl font-extrabold mb-6 text-black uppercase font-(family-name:--font-title)">Últimos Desastres</h2>
               <p className="text-lg mb-10 max-w-2xl text-black font-(family-name:--font-txt)">
-                Fique por dentro das últimas ocorrências registradas. Compartilhe os relatos e ajude as comuniadades afetadas.
+                Fique por dentro dos desastres que atingem sua região e ajude quem mais precisa. Suas denúncias podem garantir que famílias em risco recebam apoio e benefícios essenciais.
               </p>
               <Link href="/alertas" className="px-6 py-2 rounded-lg bg-black text-white hover:bg-gray-800 font-(family-name:--font-txt)">
-                Ver útimas ocorrências
+                Ver últimas ocorrências
               </Link>
             </div>
 
             <div className="mt-15 md:mt-0 md:ml-15">
+
+              <p className="font-(family-name:--font-txt) text-sm mb-2 text-gray-700">Exemplos de ocorrências:</p>
+              
               <div className="grid grid-cols-1 gap-6">
-                {/* Card 1 */}
+
+                {/* Card 1 - Enchente */}
                 <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
                   <div className="flex gap-2 items-center mb-3">
-                    <Image src="/enchente.svg" alt="sf_alert" width={20} height={20} />
-                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">Alerta de Enchente</h3>
+                    <Image src="/enchente.svg" alt="Alerta de Enchente" width={20} height={20} />
+                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">
+                      Alerta de Enchente
+                    </h3>
                   </div>
-                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Uma enchente foi registrada na região do centro. Evite áreas alagadas.</p>
-                  <Link href="/alertas/1" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Ver Detalhes</Link>
+                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
+                    Enchente registrada na região central. Denúncias indicam alagamentos em vias públicas. Autoridades em alerta para envio de auxílio emergencial.
+                  </p>
+                  <Link href="/alertas/1" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">
+                    Ver Detalhes
+                  </Link>
                 </div>
 
-                {/* Card 2 */}
+                {/* Card 2 - Queimada */}
                 <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
                   <div className="flex gap-2 items-center mb-3">
-                    <Image src="/queimada.svg" alt="sf_alert" width={20} height={20} />
-                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">Alerta de Queimada</h3>
+                    <Image src="/queimada.svg" alt="Alerta de Queimada" width={20} height={20} />
+                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">
+                      Alerta de Queimada
+                    </h3>
                   </div>
-                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Uma queimada foi registrada na região do centro. Evite áreas com fumaça e focos de incêndio.</p>
-                  <Link href="/alertas/2" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Ver Detalhes</Link>
+                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
+                    Focos de queimada foram relatados próximo à zona urbana. Equipes de contenção e avaliação de impacto social foram acionadas.
+                  </p>
+                  <Link href="/alertas/2" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">
+                    Ver Detalhes
+                  </Link>
                 </div>
 
-                {/* Card 3 */}
+                {/* Card 3 - Deslizamento */}
                 <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
                   <div className="flex gap-2 items-center mb-3">
-                    <Image src="/deslizamento.svg" alt="sf_alert" width={20} height={20} />
-                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">Alerta de Deslizamento</h3>
+                    <Image src="/deslizamento.svg" alt="Alerta de Deslizamento" width={20} height={20} />
+                    <h3 className="text-xl font-semibold text-blue-800 uppercase font-(family-name:--font-title)">
+                      Alerta de Deslizamento
+                    </h3>
                   </div>
-                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Um deslizamento foi registrado na região do centro. Evite encostas, morros e áreas de risco.</p>
-                  <Link href="/alertas/3" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">Ver Detalhes</Link>
+                  <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">
+                    Deslizamento em área de morro foi confirmado por moradores. Comunidade mobilizada para solicitar suporte e acesso a benefícios.
+                  </p>
+                  <Link href="/alertas/3" className="text-blue-600 hover:underline flex justify-end font-(family-name:--font-txt)">
+                    Ver Detalhes
+                  </Link>
                 </div>
+
               </div>
             </div>
           </div>
+
 
         </Container>
       </section>
