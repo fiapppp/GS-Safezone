@@ -41,7 +41,7 @@ const Beneficio = () => {
 
                     <div className="my-4">
                         <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
-                            <Link className="flex items-center text-purple-800 hover:text-purple-600 mb-4" href="/ocorrencias">
+                            <Link className="flex items-center text-purple-800 hover:text-purple-600 mb-4" href="/beneficios">
                                 <ArrowLeft className="w-5 h-5 mr-2" />
                                 <span className="font-(family-name:--font-txt)">Voltar</span>
                             </Link>

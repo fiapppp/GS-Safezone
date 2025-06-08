@@ -26,7 +26,7 @@ const DetalheDenuncia = () => {
 
   useEffect(() => {
     if (!denunciaSelecionada) {
-      router.push("/admin//aprovacao-denuncias");
+      router.push("/admin/aprovacao-denuncias");
     }
   }, [denunciaSelecionada, router]);
 
@@ -69,7 +69,7 @@ const DetalheDenuncia = () => {
         <div className="border border-gray-200 rounded-lg p-6 bg-white shadow hover:shadow-lg transition">
           <Link
             className="flex items-center text-blue-800 hover:text-blue-600 mb-4"
-            href="/admin/denuncias"
+            href="/admin/aprovacao-denuncias"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             <span>Voltar</span>
@@ -84,15 +84,13 @@ const DetalheDenuncia = () => {
             </p>
           </div>
 
-          <div className="md:flex justify-between gap-10 items-center mb-5">
+          <div className="md:flex gap-30 items-center mb-5">
             <div>
               <p className="text-gray-600 mb-4">
                 {denunciaSelecionada.descricao}
               </p>
             </div>
-            <div>
-              <MapaLocalizacao width={700} height={200} />
-            </div>
+            <MapaLocalizacao />
           </div>
 
           <div className="flex justify-between items-center gap-2 font-(family-name:--font-txt)">
@@ -105,19 +103,19 @@ const DetalheDenuncia = () => {
             <div className="flex gap-4">
               <button
                 onClick={aprovar}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                className="bg-green-600 hover:bg-green-700 text-sm uppercase px-4 py-2 rounded-full text-white font-semibold transition"
               >
                 Aprovar
               </button>
               <button
                 onClick={recusar}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                className="bg-red-600 hover:bg-red-700 text-sm uppercase px-4 py-2 rounded-full text-white font-semibold transition"
               >
                 Reprovar
               </button>
               <button
                 onClick={emAnalise}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase"
+                className="bg-gray-600 hover:bg-gray-700 text-sm uppercase px-4 py-2 rounded-full text-white font-semibold transition"
               >
                 Em Análise
               </button>

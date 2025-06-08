@@ -3,17 +3,11 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface MapaLocalizacaoProps {
-  width?: number | string;
-  height?: number | string;
+  onErro?: () => void;
 }
 
-const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({
-  width = "100%",
-  height = 500,
-}) => {
-  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(
-    null
-  );
+const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({ onErro }) => {
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,6 +36,7 @@ const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({
           );
           setCoords(fallbackCoords);
           setLoading(false);
+          if (onErro) onErro(); // chama callback de erro se existir
         },
         {
           enableHighAccuracy: true,
@@ -53,47 +48,43 @@ const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({
       setError("Geolocalização não é suportada neste navegador.");
       setCoords(fallbackCoords);
       setLoading(false);
+      if (onErro) onErro();
     }
-  }, []);
+  }, [onErro]);
 
   const mapaUrl = coords
     ? `https://maps.google.com/maps?q=${coords.lat},${coords.lng}&z=15&output=embed`
     : "";
 
   return (
-    <div className="w-full">
+    <div className="w-full h-64 md:h-80">
       {loading ? (
-        <div
-          style={{ width, height }}
-          className="flex flex-col items-center justify-center"
-        >
+        <div className="w-full h-full flex flex-col items-center justify-center">
           <Image
             src="/loader-sf.svg"
             alt="Carregando..."
-            width={200}
-            height={200}
-            className="bg-white rounded-full shadow-md p-10"
+            width={100}
+            height={100}
+            className="bg-white rounded-full shadow-md p-6"
           />
-          <p className="text-lg animate-pulse font-(family-name:--font-txt) mt-5">
+          <p className="text-sm animate-pulse font-(family-name:--font-txt) mt-4">
             Carregando mapa...
           </p>
         </div>
       ) : (
-        <div>
-          <div style={{ width, height }}>
-            <iframe
-              src={mapaUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0, borderRadius: "20px" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+        <div className="w-full h-full relative">
+          <iframe
+            src={mapaUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0, borderRadius: "20px" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
 
           {error && (
-            <div className="text-center mt-4 p-4 bg-yellow-100 text-yellow-800 rounded-lg">
+            <div className="absolute bottom-0 left-0 right-0 p-2 bg-yellow-100 text-yellow-800 text-sm text-center rounded-b-lg">
               ⚠️ {error}
             </div>
           )}

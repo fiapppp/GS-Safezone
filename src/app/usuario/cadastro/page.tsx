@@ -142,7 +142,7 @@ const Cadastro = () => {
                                 </div>
                                 <button type="submit"
                                     className="w-full px-6 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition duration-200 font-(family-name:--font-txt)">
-                                    Entrar
+                                    Realizar cadastro
                                 </button>
                             </div>
                         </form>

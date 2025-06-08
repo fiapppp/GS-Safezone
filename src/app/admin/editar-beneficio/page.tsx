@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Container from "@/app/components/container/container";
 
 const Beneficios = () => {
+    const router = useRouter();
+
     const tiposBeneficio = ['a', 'b', 'c', 'd'];
 
     const [beneficioSelecionado, setBeneficioSelecionado] = useState("");
@@ -14,6 +17,7 @@ const Beneficios = () => {
     const [dataValidade, setDataValidade] = useState("");
     const [quantidade, setQuantidade] = useState("");
     const [tipoSelecionado, setTipoSelecionado] = useState("");
+    const [statusAtivo, setStatusAtivo] = useState(true); // NOVO
 
     const handleSelecionarBeneficio = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const valor = e.target.value;
@@ -21,26 +25,44 @@ const Beneficios = () => {
         const editar = !!valor;
         setModoEdicao(editar);
 
-        if (!editar) {
-            // limpa os campos
+        if (editar) {
+            // Aqui você pode carregar os dados reais do benefício selecionado
+            setNome(`Benefício ${valor}`);
+            setCusto("100");
+            setDataValidade("01/01/2026");
+            setQuantidade("50");
+            setTipoSelecionado("a");
+            setStatusAtivo(true); // Simulando que está ativo
+        } else {
             setNome("");
             setCusto("");
             setDataValidade("");
             setQuantidade("");
             setTipoSelecionado("");
+            setStatusAtivo(true);
         }
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!modoEdicao) return;
+
+        // Aqui você pode adicionar a lógica de envio para API
+        console.log("Benefício editado com sucesso!");
+        console.log("Status ativo:", statusAtivo);
+
+        router.push("/beneficios");
     };
 
     return (
         <>
             <section className="mt-10 py-25 flex items-center">
-
                 <div className="fixed -z-10 top-10 -right-0 md:opacity-90 opacity-50 h-dvh flex items-center">
                     <Image src="/bg-beneficios.png" alt="sf_search" width={1000} height={1000} />
                 </div>
 
                 <Container>
-
                     <h1 className="text-5xl font-extrabold mb-6 text-purple-800 font-(family-name:--font-title)">
                         Editar <span className="text-purple-600">benefício</span>
                     </h1>
@@ -63,7 +85,7 @@ const Beneficios = () => {
                     </div>
 
                     <div className="md:flex flex-col justify-center md:justify-between mb-4">
-                        <form className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3">
+                        <form onSubmit={handleSubmit} className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3">
                             <div className="border border-gray-200 p-13 bg-white shadow transition">
                                 <div className="mb-6">
                                     <label htmlFor="editar_beneficio" className="block text-gray-700 mb-2">Benefício selecionado:</label>
@@ -153,6 +175,24 @@ const Beneficios = () => {
                                     </select>
                                 </div>
 
+                                {/* BOTÃO DE STATUS */}
+                                <div className="mb-6">
+                                    <label htmlFor="status_beneficio" className="block text-gray-700 mb-2">Status do benefício</label>
+                                    <div className="flex items-center gap-4">
+                                        <button
+                                            type="button"
+                                            onClick={() => setStatusAtivo(!statusAtivo)}
+                                            disabled={!modoEdicao}
+                                            className={`px-4 py-2 rounded-full text-white font-semibold transition ${
+                                                statusAtivo ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700"
+                                            } ${!modoEdicao && "opacity-50 cursor-not-allowed"}`}
+                                        >
+                                            {statusAtivo ? "Ativo" : "Inativo"}
+                                        </button>
+                                        <span className="text-gray-600">{statusAtivo ? "Este benefício está ativo" : "Este benefício está desativado"}</span>
+                                    </div>
+                                </div>
+
                                 <button
                                     type="submit"
                                     disabled={!modoEdicao}
@@ -160,12 +200,11 @@ const Beneficios = () => {
                                         modoEdicao ? "bg-purple-600 hover:bg-purple-700" : "bg-gray-400 cursor-not-allowed"
                                     }`}
                                 >
-                                    Editar benefício
+                                    Salvar benefício
                                 </button>
                             </div>
                         </form>
                     </div>
-
                 </Container>
             </section>
         </>

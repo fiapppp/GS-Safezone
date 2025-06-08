@@ -16,11 +16,16 @@ const AprovDenuncias = () => {
   const [denuncias, setDenuncias] = useState<DenunciaType[]>([]);
 
   const denunciasMock = [
-    { id: 1, titulo: "Deslizamento em bairro X", data: "2025-06-05", status: "aprovada" },
-    { id: 2, titulo: "Enchente em rua Y", data: "2025-05-28", status: "em análise" },
-    { id: 3, titulo: "Queimada em área Z", data: "2025-06-01", status: "recusada" },
-    { id: 4, titulo: "Deslizamento em bairro W", data: "2025-06-03", status: "em análise" },
-  ];
+  { id: 1, titulo: "Deslizamento em bairro X", data: "2025-06-08", status: "aprovada" },
+  { id: 2, titulo: "Enchente em rua Y", data: "2025-06-06", status: "em análise" },
+  { id: 3, titulo: "Queimada em área Z", data: "2025-06-01", status: "recusada" },
+  { id: 4, titulo: "Desmoronamento em morro B", data: "2025-05-29", status: "em análise" },
+  { id: 5, titulo: "Enchente em bairro Nova Vida", data: "2025-06-07", status: "aprovada" },
+];
+
+  const formatarData = (data: string) => {
+    return new Intl.DateTimeFormat("pt-BR").format(new Date(data));
+  };
 
   useEffect(() => {
     let resultado = [...denunciasMock];
@@ -104,7 +109,7 @@ const AprovDenuncias = () => {
                   {item.titulo}
                 </h3>
                 <p className="text-xs font-(family-name:--font-txt) text-gray-500 mb-2">
-                  Data: {item.data}
+                  Data: {formatarData(item.data)}
                 </p>
                 <p
                   className={`font-bold font-(family-name:--font-txt) ${

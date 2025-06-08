@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
+import Login from "@/app/components/login/login"
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
-  const [menuAberto, setMenuAberto] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(true);
 
   const isAdmin = true; // Substituir pela lógica real
 
@@ -81,9 +82,7 @@ const Header = () => {
               <Link href="/integrantes" className="text-gray-900 hover:text-white rounded p-2 hover:bg-gray-700">
                 Sobre nós
               </Link>
-              <Link href="/usuario/login" className="hover:text-gray-700 bg-blue-400 rounded p-2 text-white">
-                Login
-              </Link>
+              <Login />
             </div>
 
             {/* Botão Mobile */}
@@ -141,9 +140,7 @@ const Header = () => {
             <Link href="/integrantes" onClick={() => setMenuAberto(false)} className="w-full text-gray-900 hover:bg-gray-200 rounded p-2">
               Sobre nós
             </Link>
-            <Link href="/usuario/login" onClick={() => setMenuAberto(false)} className="w-full bg-blue-400 text-white rounded p-2 hover:bg-blue-500">
-              Login
-            </Link>
+            <Login />
           </div>
         </div>
       )}

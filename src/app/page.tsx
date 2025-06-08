@@ -69,7 +69,7 @@ export default function Home() {
               </div>
             </div>
 
-            <MapaLocalizacao width={800} height={450} />
+            <MapaLocalizacao/>
           </div>
 
         </Container>
@@ -126,7 +126,7 @@ export default function Home() {
                 <p className="mb-10 text-gray-600 text-center font-(family-name:--font-txt)">
                   Veja os desastres mais recentes em sua região e acompanhe atualizações em tempo real para se proteger e ajudar.
                 </p>
-                <Link href="/alertas">
+                <Link href="/ocorrencias">
                   <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold uppercase font-(family-name:--font-txt)">
                     Ver Alertas
                   </button>

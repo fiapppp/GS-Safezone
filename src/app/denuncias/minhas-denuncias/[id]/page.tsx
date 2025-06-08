@@ -62,7 +62,7 @@ const MinhasDenuncias = () => {
                                     <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos praesentium ut animi labore nihil dolorem rerum nulla quas, iusto eligendi perferendis assumenda nesciunt eveniet reprehenderit aperiam possimus, magni amet numquam.</p>
                                 </div>
                                 <div>
-                                    <MapaLocalizacao width={500} height={200}/>
+                                    <MapaLocalizacao />
                                 </div>
                             </div>
 

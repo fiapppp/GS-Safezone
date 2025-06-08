@@ -8,6 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "SafeZone",
   description: "Encontre o seu abrigo seguro",
+  icons: {
+    icon: "/logo.ico",
+  },
 };
 
 const abel = Abel({
@@ -30,10 +33,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className="min-h-screen mx-auto">
-        <Header />
-        <main>
-          {children}
-        </main>
+          <Header />
+          <main>
+            {children}
+          </main>
         <Footer />
       </body>
     </html>

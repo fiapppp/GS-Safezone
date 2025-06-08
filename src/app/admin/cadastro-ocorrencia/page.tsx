@@ -60,12 +60,17 @@ const Ocorrencias = () => {
                                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
                                     </div>
                                     <div>
-                                        <label htmlFor="categoria_ocorrencia" className="block text-gray-700 mb-2">Categoria</label>
-                                        <select id="categoria_ocorrencia" name="categoria_ocorrencia" required
+                                        <label htmlFor="data_ocorrencia" className="block text-gray-700 mb-2">Data da ocorrência</label>
+                                        <input type="date" id="data_ocorrencia" name="data_ocorrencia" required
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                    </div>
+                                </div>
+                                <div className="mb-6">
+                                    <label htmlFor="categoria_ocorrencia" className="block text-gray-700 mb-2">Categoria</label>
+                                    <select id="categoria_ocorrencia" name="categoria_ocorrencia" required
                                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" >
                                             <option value="">Selecione...</option>
-                                        </select>
-                                    </div>
+                                    </select>
                                 </div>
                                 <div className="mb-6">
                                     <label htmlFor="descricao_ocorrencia" className="block text-gray-700 mb-2">Descrição</label>
@@ -152,6 +157,16 @@ const Ocorrencias = () => {
                                         <option value="raio_bairro">Bairro</option>
                                         <option value="raio_localidade">Cidade</option>
                                         <option value="raio_uf">Estado</option>
+                                    </select>
+                                </div>
+                                <div className="mb-6">
+                                    <label htmlFor="gravidade_ocorrencia" className="block text-gray-700 mb-2">Gravidade da ocorrência</label>
+                                    <select id="gravidade_ocorrencia" name="gravidade_ocorrencia" required
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" >
+                                        <option value="">Selecione...</option>
+                                        <option value="gravidade_bairro">Baixa</option>
+                                        <option value="gravidade_localidade">Média</option>
+                                        <option value="gravidade_uf">Alta</option>
                                     </select>
                                 </div>
                                 <button type="submit"

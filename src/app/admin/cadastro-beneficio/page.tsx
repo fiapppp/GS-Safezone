@@ -1,12 +1,24 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Container from "@/app/components/container/container";
 
 const Beneficios = () => {
+    const router = useRouter();
 
     const tiposBeneficio = ['a', 'b', 'c', 'd'];
     const [tipoSelecionado, setTipoSelecionado] = useState('');
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Aqui você pode adicionar sua lógica de envio para API
+        console.log("Benefício cadastrado!");
+
+        // Após cadastrar, redireciona para /beneficios
+        router.push("/beneficios");
+    };
 
     return (
         <>
@@ -23,7 +35,10 @@ const Beneficios = () => {
                     </h1>
 
                     <div className="md:flex flex-col justify-center md:justify-between mb-4">
-                        <form action="" className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="md:w-1/2 rounded-full justify-baseline font-(family-name:--font-title) my-3"
+                        >
                             <div className="border border-gray-200 p-13 bg-white shadow transition">
                                 <div className="mb-6">
                                     <label htmlFor="nome_beneficio" className="block text-gray-700 mb-2">Nome</label>
@@ -74,7 +89,7 @@ const Beneficios = () => {
                 </Container>
             </section>
         </>
-    )
-}
+    );
+};
 
 export default Beneficios;
