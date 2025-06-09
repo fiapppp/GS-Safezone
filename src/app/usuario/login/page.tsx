@@ -13,7 +13,8 @@ const Login = () => {
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
     const router = useRouter();
-    const { setUser } = useContext(UserContext);
+
+    // Removido o setUser porque não está sendo usado
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,12 +35,15 @@ const Login = () => {
 
             localStorage.setItem("token", data.token);
             localStorage.setItem("expiraEm", data.expiraEm);
-            localStorage.setItem("usuario", JSON.stringify(data.usuario)); // <-- Salva o usuário
-
+            localStorage.setItem("usuario", JSON.stringify(data.usuario)); // salva usuário
 
             router.push("/");
-        } catch (err: any) {
-            setErro(err.message || "Erro ao realizar login");
+        } catch (error) {
+            if (error instanceof Error) {
+                setErro(error.message);
+            } else {
+                setErro("Erro ao realizar login");
+            }
         }
     };
 

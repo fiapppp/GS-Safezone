@@ -12,32 +12,30 @@ export default function Home() {
     <>
       <section className="mt-10 py-40 h-auto">
         <Container>
-
+          
           <div className="md:flex md:flex-1/2 md:justify-between items-center">
             <div>
               <p className="text-4xl mb-3">🚨</p>
               <h1 className="text-5xl font-extrabold mb-6 text-blue-800 font-(family-name:--font-title)">
                 Bem-vindo ao <span className="text-blue-600">SafeZone</span>
               </h1>
-                <p className="text-lg mb-10 max-w-2xl text-gray-700 font-(family-name:--font-txt)">
-                  Fique por dentro dos desastres mais recentes e ajude quem precisa.
-                  Acompanhe ocorrências em tempo real, envie denúncias sobre áreas afetadas e contribua para que pessoas em situação de risco recebam os benefícios e o apoio que merecem.
-                </p>
-
+              <p className="text-lg mb-10 max-w-2xl text-gray-700 font-(family-name:--font-txt)">
+                Fique por dentro dos desastres mais recentes e ajude quem precisa.
+                Acompanhe ocorrências em tempo real, envie denúncias sobre áreas afetadas e contribua para que pessoas em situação de risco recebam os benefícios e o apoio que merecem.
+              </p>
               <div className="flex gap-4 font-(family-name:--font-txt)">
-                    <Link href="/usuario/login">
-                      <button className="px-6 py-2 rounded-lg bg-blue-700 text-white hover:bg-blue-800">
-                        Login
-                      </button>
-                    </Link>
-                    <Link href="/usuario/cadastro">
-                      <button className="px-6 py-2 rounded-lg border border-blue-700 text-blue-700 hover:bg-blue-50">
-                        Cadastro
-                      </button>
-                    </Link>
+                <Link href="/usuario/login">
+                  <button className="px-6 py-2 rounded-lg bg-blue-700 text-white hover:bg-blue-800">
+                    Login
+                  </button>
+                </Link>
+                <Link href="/usuario/cadastro">
+                  <button className="px-6 py-2 rounded-lg border border-blue-700 text-blue-700 hover:bg-blue-50">
+                    Cadastro
+                  </button>
+                </Link>
               </div>
             </div>
-
             <div className="mt-15 md:mt-0 md:ml-15 flex justify-center">
               <Image src="/sf_home.svg" alt="Safezone home" width={300} height={285} />
             </div>

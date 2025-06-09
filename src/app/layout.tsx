@@ -13,18 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const abel = Abel({
-  subsets: ['latin'],
-  variable: '--font-title',
-  weight: '400',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-txt',
-  display: 'swap',
-})
-
 import { UserProvider } from "./context/UserContext";
 
 export default function RootLayout({
