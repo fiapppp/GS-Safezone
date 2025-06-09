@@ -25,6 +25,8 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
+import { UserProvider } from "./context/UserContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,11 +35,13 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className="min-h-screen mx-auto">
-          <Header />
-          <main>
-            {children}
-          </main>
-        <Footer />
+          <UserProvider>
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </UserProvider>
       </body>
     </html>
   );

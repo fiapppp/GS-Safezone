@@ -1,9 +1,10 @@
-'use client';
-import React, { useEffect, useState } from "react";
+"use client";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/app/components/container/container";
 import MapaLocalizacao from '@/app/components/mapa/mapa';
+import { UserContext } from "./context/UserContext";
 
 export default function Home() {
 
@@ -18,23 +19,22 @@ export default function Home() {
               <h1 className="text-5xl font-extrabold mb-6 text-blue-800 font-(family-name:--font-title)">
                 Bem-vindo ao <span className="text-blue-600">SafeZone</span>
               </h1>
-
-              <p className="text-lg mb-10 max-w-2xl text-gray-700 font-(family-name:--font-txt)">
-                Fique por dentro dos desastres mais recentes e ajude quem precisa.
-                Acompanhe ocorrências em tempo real, envie denúncias sobre áreas afetadas e contribua para que pessoas em situação de risco recebam os benefícios e o apoio que merecem.
-              </p>
+                <p className="text-lg mb-10 max-w-2xl text-gray-700 font-(family-name:--font-txt)">
+                  Fique por dentro dos desastres mais recentes e ajude quem precisa.
+                  Acompanhe ocorrências em tempo real, envie denúncias sobre áreas afetadas e contribua para que pessoas em situação de risco recebam os benefícios e o apoio que merecem.
+                </p>
 
               <div className="flex gap-4 font-(family-name:--font-txt)">
-                <Link href="/usuario/login">
-                  <button className="px-6 py-2 rounded-lg bg-blue-700 text-white hover:bg-blue-800">
-                    Login
-                  </button>
-                </Link>
-                <Link href="/usuario/cadastro">
-                  <button className="px-6 py-2 rounded-lg border border-blue-700 text-blue-700 hover:bg-blue-50">
-                    Cadastro
-                  </button>
-                </Link>
+                    <Link href="/usuario/login">
+                      <button className="px-6 py-2 rounded-lg bg-blue-700 text-white hover:bg-blue-800">
+                        Login
+                      </button>
+                    </Link>
+                    <Link href="/usuario/cadastro">
+                      <button className="px-6 py-2 rounded-lg border border-blue-700 text-blue-700 hover:bg-blue-50">
+                        Cadastro
+                      </button>
+                    </Link>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ export default function Home() {
               </div>
             </div>
 
-            <MapaLocalizacao/>
+            <MapaLocalizacao />
           </div>
 
         </Container>
@@ -157,7 +157,7 @@ export default function Home() {
             <div className="mt-15 md:mt-0 md:ml-15">
 
               <p className="font-(family-name:--font-txt) text-sm mb-2 text-gray-700">Exemplos de ocorrências:</p>
-              
+
               <div className="grid grid-cols-1 gap-6">
 
                 {/* Card 1 - Enchente */}

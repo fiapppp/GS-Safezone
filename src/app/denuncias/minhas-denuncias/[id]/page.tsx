@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 const MinhasDenuncias = () => {
 
-    const descricao = "Descrição Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque nam expedita molestias corrupti voluptatum, adipisci sed sequi labore? Facere voluptates quaerat quidem id explicabo voluptas consectetur dolor dolorum necessitatibus animi!";
+    const descricao = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque nam expedita molestias corrupti voluptatum, adipisci sed sequi labore? Facere voluptates quaerat quidem id explicabo voluptas consectetur dolor dolorum necessitatibus animi!";
 
     // Status da denúncia:
     const status = "Aprovada"; // Pode ser: "Aprovada", "Em Análise", "Recusada"
@@ -59,7 +59,7 @@ const MinhasDenuncias = () => {
 
                             <div className="md:flex justify-between grid gap-10 items-center mt-5 mb-5">
                                 <div>
-                                    <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos praesentium ut animi labore nihil dolorem rerum nulla quas, iusto eligendi perferendis assumenda nesciunt eveniet reprehenderit aperiam possimus, magni amet numquam.</p>
+                                    <p className="text-gray-600 mb-4 font-(family-name:--font-txt)">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos praesentium ut animi labore nihil dolorem rerum nulla quas, iusto eligendi perferendis assumenda nesciunt eveniet reprehenderit aperiam possimus, magni amet numquam.</p>
                                 </div>
                                 <div>
                                     <MapaLocalizacao />

@@ -32,7 +32,7 @@ const MapaLocalizacao: React.FC<MapaLocalizacaoProps> = ({ onErro }) => {
             "Erro desconhecido ao tentar acessar a localização.";
 
           setError(
-            `Não conseguimos acessar sua localização. ${mensagemErro} Exibindo um local padrão.`
+            `Não conseguimos acessar sua localização. Exibindo um local padrão.`
           );
           setCoords(fallbackCoords);
           setLoading(false);

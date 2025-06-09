@@ -1,13 +1,16 @@
 "use client";
 import Link from "next/link";
-import Login from "@/app/components/login/login"
-import { useState } from "react";
+import Login from "@/app/components/login/login";
+import { useState, useContext } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { UserContext } from "../../context/UserContext";
 
 const Header = () => {
   const [menuAberto, setMenuAberto] = useState(true);
+  const { user } = useContext(UserContext);
 
-  const isAdmin = true; // Substituir pela lógica real
+  // Derive isAdmin from user role or permissions if needed
+  const isAdmin = true;
 
   return (
     <header className="shadow fixed w-full top-0 left-0 bg-white/70 backdrop-blur-sm z-50">
